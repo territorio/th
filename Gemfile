@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 ruby "1.9.3"
-=begin
+
 gem "rails", :git => "git://github.com/territorio/rails.git", :branch => 'th'
 gem "active_model_serializers", :git => "git://github.com/territorio/active_model_serializers.git", :branch => 'th'
 
@@ -30,4 +30,3 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
-=end
