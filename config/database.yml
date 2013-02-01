@@ -18,8 +18,14 @@ test:
   pool: 5
   timeout: 5000
 
+# TODO: this must be configurable
+# OUT of the OS project
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
-  pool: 5
-  timeout: 5000
+  adapter:	postgresql
+  encoding:	unicode
+  pool:	5
+  database:	d2e0s5dn03t35b
+  username:	jbdqhnsxxqggwf
+  password:	GtU0LP0LOZSXyQngNX4aAXIBU5
+  host:	ec2-54-243-224-154.compute-1.amazonaws.com
+  port:	5432

@@ -4,11 +4,23 @@ ruby "1.9.3"
 
 gem "rails", :github => "territorio/rails", :branch => "th"
 gem "active_model_serializers", :github => "territorio/active_model_serializers", :branch => "th"
+
+gem 'devise', '~> 2.1'
 gem "rails_admin", :github => "territorio/rails_admin", :branch => "th"
 
-gem 'sqlite3'
+
+gem 'thin'
+
+group :development, :test do
+  gem 'sqlite3', '~> 1.3'
+end
+
+group :production do
+  gem 'pg', '~> 0.13'
+end
 
 
+gem 'jquery-rails'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -21,7 +33,3 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
-
-
-gem "devise"
