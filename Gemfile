@@ -1,13 +1,11 @@
 source "https://rubygems.org"
 ruby "1.9.3"
 
-
-gem "rails", :github => "territorio/rails", :branch => "th"
-gem "active_model_serializers", :github => "territorio/active_model_serializers", :branch => "th"
+gem "rails", :git => "git://github.com/territorio/rails.git", :branch => 'th'
+gem "active_model_serializers", :git => "git://github.com/territorio/active_model_serializers.git", :branch => 'th'
 
 gem 'devise', '~> 2.1'
-gem "rails_admin", :github => "territorio/rails_admin", :branch => "th"
-
+gem "rails_admin", :git => "git://github.com/territorio/rails_admin.git", :branch => 'th'
 
 gem 'thin'
 
