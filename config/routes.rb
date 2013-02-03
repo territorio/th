@@ -6,7 +6,7 @@ Th::Application.routes.draw do
   root :to => redirect("/admin")
 
   resources :categories, :only => [:index, :show]
-  resources :places, :only => [:index, :show]
+  resources :events, :only => [:index, :show]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

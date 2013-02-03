@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130201180743) do
+ActiveRecord::Schema.define(:version => 20130203180320) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -39,13 +39,21 @@ ActiveRecord::Schema.define(:version => 20130201180743) do
 
   add_index "categories", ["name"], :name => "index_categories_on_name", :unique => true
 
-  create_table "places", :force => true do |t|
-    t.string   "name",       :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "categories_events", :id => false, :force => true do |t|
+    t.integer  "category_id", :null => false
+    t.integer  "event_id",    :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "places", ["name"], :name => "index_places_on_name", :unique => true
+  add_index "categories_events", ["category_id", "event_id"], :name => "index_categories_events_on_category_id_and_event_id", :unique => true
+
+  create_table "events", :force => true do |t|
+    t.string   "title",      :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.text     "body"
+  end
 
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"

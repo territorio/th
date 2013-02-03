@@ -6,6 +6,7 @@ gem "active_model_serializers", :git => "git://github.com/territorio/active_mode
 
 gem 'devise', '~> 2.1'
 gem "rails_admin", :git => "git://github.com/territorio/rails_admin.git", :branch => 'th'
+gem 'ckeditor', '~> 4.0'
 
 gem 'thin'
 
