@@ -1,5 +1,9 @@
 one: 
   title: "Event 1"
-  categories: one, two
+  categories: two
 two:
   title: "Event 2"
+  categories: one
+three:
+  title: "Event 3"
+  categories: one, two

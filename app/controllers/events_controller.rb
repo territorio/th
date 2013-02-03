@@ -1,11 +1,12 @@
 class EventsController < ApplicationController
 
   before_filter :by_ids, :only => :index 
+  before_filter :by_category, :only => :index 
   respond_to :json
 
 
   def index
-    respond_with(collection)
+    respond_with(collection.uniq)
   end
 
   def show
@@ -21,6 +22,14 @@ class EventsController < ApplicationController
 
   def collection=(collection)
     @collection = collection
+  end
+
+  def by_category
+
+    if params[:category]
+      self.collection = collection.joins(:categories).where(:categories => {:id => params[:category]})
+    end
+
   end
 
   def by_ids
