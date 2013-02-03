@@ -32,6 +32,11 @@ Th::Application.configure do
   # Raise exception on mass assignment protection for Active Record models
   config.active_record.mass_assignment_sanitizer = :strict
 
+  #config.active_record.logger.level = Logger.new(STDOUT)
+
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
 end
+
+ActiveRecord::Base.logger = Logger.new(STDOUT)
+
