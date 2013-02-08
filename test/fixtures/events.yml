@@ -13,4 +13,5 @@ three:
   start_date: 2012-02-01
   end_date: 2012-02-20
   categories: one, two
-  is_regular: false 
+  is_regular: true 
+  is_wednesday: false 

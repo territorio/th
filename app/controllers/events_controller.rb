@@ -1,13 +1,26 @@
 class EventsController < ApplicationController
 
-  before_filter :by_ids, :only => :index 
-  before_filter :by_category, :only => :index 
-  before_filter :by_date, :only => :index 
   respond_to :json
-  
 
   def index
-    respond_with(collection.uniq)
+
+    if params[:date]
+
+      self.collection = collection.by_category(params[:category]) if params[:category]
+      self.collection = collection.posible_date(params[:date])
+
+      day = Date.parse(params[:date]).strftime("%A").downcase
+
+      self.collection = collection.send("check_#{day}")
+      respond_with(collection.uniq)
+
+    elsif params[:ids]
+
+      self.collection = collection.where(:id => params[:ids]) 
+      respond_with(collection)
+
+    end
+
   end
 
   def show
@@ -23,30 +36,6 @@ class EventsController < ApplicationController
 
   def collection=(collection)
     @collection = collection
-  end
-
-  def by_category
-
-    if params[:category]
-      self.collection = collection.joins(:categories).where(:categories => {:id => params[:category]})
-    end
-
-  end
-
-  def by_ids
-    self.collection = collection.where(:id => params[:ids]) if params[:ids]
-  end
-
-  def by_date
-
-    if params[:date]
-
-      query = "is_regular = :is_regular AND ( ( start_date = :date AND end_date IS NULL) OR (:date >= start_date AND :date <= end_date) )"
-
-      self.collection = collection.where(query, {:date => params[:date], :is_regular => true})
-
-    end
-
   end
 
 end
