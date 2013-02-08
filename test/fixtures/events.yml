@@ -2,12 +2,15 @@ one:
   title: "Event 1"
   start_date: 2012-02-01
   categories: two
+  is_regular: true
 two:
   title: "Event 2"
   start_date: 2012-02-01
   categories: one
+  is_regular: true 
 three:
   title: "Event 3"
   start_date: 2012-02-01
   end_date: 2012-02-20
   categories: one, two
+  is_regular: false 

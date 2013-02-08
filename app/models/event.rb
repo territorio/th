@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
 
   has_and_belongs_to_many :categories
-  attr_accessible :title, :category_ids, :body, :start_date, :end_date
+  attr_accessible :title, :category_ids, :body, :start_date, :end_date, :is_regular
 
   rails_admin do 
 
@@ -9,11 +9,13 @@ class Event < ActiveRecord::Base
       field :title
       field :start_date
       field :categories
+      field :is_regular
     end
 
     edit do
       field :title
       field :categories
+      field :is_regular
       field :start_date
       field :end_date
       field :body do

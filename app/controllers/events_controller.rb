@@ -41,8 +41,9 @@ class EventsController < ApplicationController
 
     if params[:date]
 
-      query = "(start_date = :date AND end_date IS NULL) OR (:date >= start_date AND :date <= end_date)"
-      self.collection = collection.where(query, {:date => params[:date]})
+      query = "is_regular = :is_regular AND ( ( start_date = :date AND end_date IS NULL) OR (:date >= start_date AND :date <= end_date) )"
+
+      self.collection = collection.where(query, {:date => params[:date], :is_regular => true})
 
     end
 
