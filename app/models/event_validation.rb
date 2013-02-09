@@ -3,6 +3,8 @@ module EventValidation
 
   included do
 
+    validates :categories, :presence => true
+
     validate :is_not_regular_has_end_date, :is_not_regular_has_day, :end_date_cannot_be_before_start_date
 
     def is_not_regular_has_end_date
