@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(:version => 20130208190942) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.text     "body"
-    t.date     "start_date",   :default => '2013-02-08', :null => false
+    t.date     "start_date",   :default => '2013-02-09', :null => false
     t.date     "end_date"
     t.boolean  "is_regular",   :default => true,         :null => false
     t.boolean  "is_monday",    :default => false,        :null => false

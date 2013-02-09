@@ -31,7 +31,6 @@ module EventValidation
 
     end
 
-
   end
 
 end

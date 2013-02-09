@@ -21,9 +21,7 @@ module EventRailsAdmin
         field :start_date
         field :end_date
         field :body do
-          ckeditor do 
-            true
-          end
+          ckeditor true
         end
 
         field :is_regular
